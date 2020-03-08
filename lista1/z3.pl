@@ -1,5 +1,7 @@
 on(rower, ołówek).
 on(aparat, motyl).
+on(niebo, rower).
+
 left_of(ryba, motyl).
 left_of(motyl, klepsydra).
 left_of(klepsydra, ołówek).
@@ -21,4 +23,5 @@ to_right(X,Y) :- to_left(Y,X).
 
 higher(X,Y) :-
     above(X,Y);
-    (above(X,Z), (to_left(Z,Y);to_right(Z,Y))).
+    (above(X,Z), (to_left(Z,Y);to_left(Y,Z)));
+    (above(X, Obj1), above(Y,Obj2), higher(Obj1, Obj2)).
